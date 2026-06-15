@@ -3,38 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toko Kilat Pro - E-Commerce App</title>
-    <!-- Menggunakan Tailwind CSS versi terbaru -->
+    <title>MegaStore - Aplikasi Jualan Lengkap</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen flex flex-col">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
 
-    <!-- NAVBAR LAYER -->
-    <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#" class="text-2xl font-black tracking-wider text-blue-400">🛍️ TOKOKILAT</a>
+    <div class="bg-blue-700 text-white text-xs text-center py-2 font-medium tracking-wide">
+        🎉 PROMO AMBYAR! Gratis Ongkir Keseluruhan Pulau Jawa dengan Belanja Minimal Rp 300.000!
+    </div>
+
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-xs">
+        <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-3xl">🛍️</span>
+                <span class="text-2xl font-black tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">MEGASTORE</span>
+            </div>
+            
             <div class="relative">
-                <button onclick="toggleCart()" class="bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-xl font-medium flex items-center gap-2 border border-slate-700 transition-all cursor-pointer">
+                <button onclick="toggleCart()" class="bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-xl font-semibold flex items-center gap-3 transition-all shadow-md cursor-pointer text-sm">
                     <span>Keranjang</span>
-                    <span id="cart-count" class="bg-blue-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">0</span>
+                    <span id="cart-count" class="bg-blue-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">0</span>
                 </button>
                 
-                <!-- DROPDOWN KERANJANG -->
-                <div id="cart-dropdown" class="hidden absolute right-0 mt-3 w-85 bg-white rounded-2xl shadow-2xl p-4 border border-gray-100 z-50 text-slate-800">
-                    <h3 class="text-base font-bold border-b border-gray-100 pb-2 mb-3 flex justify-between">
-                        <span>Detail Keranjang</span>
-                        <button onclick="toggleCart()" class="text-gray-400 hover:text-gray-600 text-xs">Tutup</button>
+                <div id="cart-dropdown" class="hidden absolute right-0 mt-3 w-96 bg-white rounded-2xl shadow-2xl p-5 border border-slate-100 z-50 text-slate-800">
+                    <h3 class="text-base font-extrabold border-b border-slate-100 pb-3 mb-3 flex justify-between items-center">
+                        <span>Daftar Belanjaan</span>
+                        <button onclick="toggleCart()" class="text-slate-400 hover:text-slate-600 text-sm">Tutup</button>
                     </h3>
-                    <div id="cart-items" class="max-h-64 overflow-y-auto space-y-3 pr-1">
-                        <!-- Diisi otomatis oleh JavaScript -->
-                    </div>
-                    <div class="border-t border-gray-100 pt-3 mt-3">
-                        <div class="flex justify-between font-extrabold text-base mb-4">
-                            <span>Total Belanja:</span>
+                    <div id="cart-items" class="max-h-72 overflow-y-auto space-y-3 pr-1">
+                        </div>
+                    <div class="border-t border-slate-100 pt-4 mt-4">
+                        <div class="flex justify-between font-black text-lg mb-4">
+                            <span>Total Tagihan:</span>
                             <span id="cart-total" class="text-blue-600">Rp 0</span>
                         </div>
-                        <button onclick="checkoutToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl font-bold transition-colors cursor-pointer shadow-sm">
-                            Lanjut ke WhatsApp
+                        <button onclick="checkoutToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl font-bold transition-all text-center shadow-sm cursor-pointer">
+                            Kirim Nota ke WhatsApp
                         </button>
                     </div>
                 </div>
@@ -42,62 +46,141 @@
         </div>
     </nav>
 
-    <!-- KATALOG UTAMA -->
-    <main class="container mx-auto px-4 py-8 flex-grow">
-        <div class="mb-8 text-center">
-            <h2 class="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">Katalog Produk Unggulan</h2>
-            <p class="text-gray-500 text-sm mt-1">Pilih produk terbaik dan lakukan pemesanan secara instan</p>
+    <header class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white py-12 md:py-16 px-4">
+        <div class="container mx-auto px-2 md:px-4 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="max-w-xl text-center md:text-left">
+                <span class="bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider">Koleksi Terbaru 2026</span>
+                <h1 class="text-3xl md:text-5xl font-black tracking-tight mt-3 mb-4 leading-tight">Gaya Maksimal, Harga Paling Ideal.</h1>
+                <p class="text-slate-300 text-sm md:text-base leading-relaxed">Dapatkan produk-produk pilihan terbaik dengan jaminan kualitas original 100% serta garansi kembali jika barang rusak.</p>
+            </div>
+            <div class="w-full md:w-auto flex gap-4 overflow-x-auto pb-2 justify-center">
+                <div class="bg-white/5 border border-white/10 p-4 rounded-2xl w-40 text-center shrink-0">
+                    <span class="text-2xl block mb-1">⚡</span>
+                    <h4 class="font-bold text-sm">Diskon Gila</h4>
+                    <p class="text-xs text-slate-400 mt-0.5">Hingga 50%</p>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-4 rounded-2xl w-40 text-center shrink-0">
+                    <span class="text-2xl block mb-1">🛡️</span>
+                    <h4 class="font-bold text-sm">100% Ori</h4>
+                    <p class="text-xs text-slate-400 mt-0.5">Garansi Resmi</p>
+                </div>
+            </div>
         </div>
-        
-        <!-- Grid Produk -->
+    </header>
+
+    <section class="container mx-auto px-4 md:px-6 pt-10">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-4 flex-wrap gap-4">
+            <div>
+                <h2 class="text-xl md:text-2xl font-black text-slate-900 tracking-tight">Katalog Produk</h2>
+                <p class="text-slate-500 text-xs mt-0.5">Menampilkan produk kualitas ekspor terbaik</p>
+            </div>
+            <div class="flex gap-2 overflow-x-auto py-1">
+                <button onclick="filterCategory('All')" id="btn-All" class="cat-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer bg-blue-600 text-white shadow-xs">Semua</button>
+                <button onclick="filterCategory('Fashion')" id="btn-Fashion" class="cat-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer bg-white text-slate-600 border border-slate-200 hover:bg-slate-50">Fashion</button>
+                <button onclick="filterCategory('Aksesoris')" id="btn-Aksesoris" class="cat-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer bg-white text-slate-600 border border-slate-200 hover:bg-slate-50">Aksesoris</button>
+                <button onclick="filterCategory('Gadget')" id="btn-Gadget" class="cat-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer bg-white text-slate-600 border border-slate-200 hover:bg-slate-50">Gadget</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-4 md:px-6 py-8 flex-grow">
         <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            <!-- Diisi otomatis oleh JavaScript -->
-        </div>
+            </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-slate-900 text-slate-400 text-center py-4 border-t border-slate-800 text-xs mt-12">
-        <p>&copy; 2026 TokoKilat Pro. All Rights Reserved.</p>
+    <footer class="bg-slate-900 text-slate-400 text-center py-6 border-t border-slate-800 text-xs mt-16">
+        <p class="font-bold text-slate-300 mb-1">MEGASTORE INDONESIA</p>
+        <p>&copy; 2026 MegaStore Pro App. Semua Hak Cipta Dilindungi.</p>
     </footer>
 
-    <!-- LOGIKA JAVASCRIPT -->
     <script>
-        // 1. DATABASE PRODUK (MOCK DATA)
+        // 1. DATA DATABASE LENGKAP (8 PRODUK DENGAN DETAIL KAYA)
         const PRODUCTS = [
-            { id: 1, name: "Sepatu Sneakers Keren", price: 250000, img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" },
-            { id: 2, name: "Kaos Polos Cotton Combed", price: 75000, img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" },
-            { id: 3, name: "Jam Tangan Minimalis Aero", price: 450000, img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" },
-            { id: 4, name: "Tas Ransel Outdoor Tough", price: 320000, img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500" },
+            { id: 1, name: "Sepatu Sneakers Running Pro X", category: "Fashion", price: 250000, oldPrice: 499000, rating: 5, review: 142, tag: "Best Seller", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" },
+            { id: 2, name: "Kaos Polos Cotton Combed 30s Premium", category: "Fashion", price: 75000, oldPrice: 120000, rating: 4, review: 98, tag: "Diskon", img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" },
+            { id: 3, name: "Jam Tangan Minimalis Aero Chrono", category: "Aksesoris", price: 450000, oldPrice: 850000, rating: 5, review: 53, tag: "Eksklusif", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" },
+            { id: 4, name: "Tas Ransel Outdoor Tough Waterproof", category: "Aksesoris", price: 320000, oldPrice: 450000, rating: 4, review: 71, tag: "Stok Sedikit", img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500" },
+            { id: 5, name: "Kacamata Hitam Polarized Retro", category: "Aksesoris", price: 115000, oldPrice: 230000, rating: 4, review: 34, tag: "Diskon", img: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500" },
+            { id: 6, name: "Wireless Earbuds Bluetooth 5.3 Pro", category: "Gadget", price: 380000, oldPrice: 690000, rating: 5, review: 215, tag: "Populer", img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500" },
+            { id: 7, name: "Smartwatch AMOLED Sports Monitor", category: "Gadget", price: 799000, oldPrice: 1500000, rating: 5, review: 41, tag: "Rekomendasi", img: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500" },
+            { id: 8, name: "Jaket Bomber Windbreaker S-Pro", category: "Fashion", price: 195000, oldPrice: 350000, rating: 4, review: 88, tag: "Baru", img: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500" }
         ];
 
-        // 2. STATE - Mengambil data lama dari LocalStorage jika ada
-        let cart = JSON.parse(localStorage.getItem('tokokilat_cart')) || [];
+        let cart = JSON.parse(localStorage.getItem('megastore_cart')) || [];
+        let currentFilter = 'All';
 
-        // FORMAT RUPIAH UTILITY
         const formatRupiah = (number) => "Rp " + number.toLocaleString('id-ID');
 
-        // 3. RENDER KATALOG PRODUK
-        function renderProducts() {
-            const grid = document.getElementById('product-grid');
-            grid.innerHTML = PRODUCTS.map(prod => `
-                <div class="bg-white rounded-2xl shadow-xs border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow">
-                    <div class="relative overflow-hidden group">
-                        <img src="${prod.img}" alt="${prod.name}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-4 flex-grow flex flex-col justify-between">
-                        <div>
-                            <h3 class="font-bold text-slate-800 line-clamp-2 mb-1">${prod.name}</h3>
-                            <p class="text-blue-600 font-extrabold text-lg mb-4">${formatRupiah(prod.price)}</p>
-                        </div>
-                        <button onclick="addToCart(${prod.id})" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-xl font-semibold text-sm transition-colors cursor-pointer">
-                            Tambah ke Keranjang
-                        </button>
-                    </div>
-                </div>
-            `).join('');
+        // FUNGSI RENDER BINTANG RATING
+        function generateStars(rating) {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                stars += i <= rating ? '⭐' : '☆';
+            }
+            return stars;
         }
 
-        // 4. MANIPULASI KERANJANG (Tambah, Kurang, Hapus)
+        // 2. TAMPILKAN KATALOG PRODUK DENGAN FILTER
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            
+            // Proses filter array
+            const filtered = currentFilter === 'All' 
+                ? PRODUCTS 
+                : PRODUCTS.filter(p => p.category === currentFilter);
+
+            grid.innerHTML = filtered.map(prod => {
+                // Hitung persen diskon untuk pajangan tag
+                const diskon = Math.round(((prod.oldPrice - prod.price) / prod.oldPrice) * 100);
+
+                return `
+                    <div class="bg-white rounded-2xl shadow-xs border border-slate-100 overflow-hidden flex flex-col justify-between group hover:shadow-xl transition-all duration-300 relative">
+                        <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[10px] font-extrabold px-2.5 py-1 rounded-md z-10 uppercase tracking-wider">${prod.tag}</span>
+                        <span class="absolute top-3 right-3 bg-red-500 text-white text-[10px] font-extrabold px-2 py-1 rounded-md z-10">-${diskon}%</span>
+                        
+                        <div class="relative overflow-hidden bg-slate-100">
+                            <img src="${prod.img}" alt="${prod.name}" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        
+                        <div class="p-4 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-gray-400 font-bold text-[10px] uppercase tracking-widest block mb-1">${prod.category}</span>
+                                <h3 class="font-bold text-slate-800 line-clamp-2 text-sm leading-snug mb-1 group-hover:text-blue-600 transition-colors">${prod.name}</h3>
+                                
+                                <div class="flex items-center gap-1 mb-3 text-xs">
+                                    <span class="text-amber-500">${generateStars(prod.rating)}</span>
+                                    <span class="text-gray-400 text-[11px]">(${prod.review})</span>
+                                </div>
+
+                                <div class="mb-4">
+                                    <p class="text-xs text-gray-400 line-through">${formatRupiah(prod.oldPrice)}</p>
+                                    <p class="text-blue-600 font-black text-lg">${formatRupiah(prod.price)}</p>
+                                </div>
+                            </div>
+                            
+                            <button onclick="addToCart(${prod.id})" class="w-full bg-blue-600 hover:bg-slate-900 text-white py-2.5 rounded-xl font-bold text-xs transition-colors cursor-pointer shadow-xs tracking-wide">
+                                + Masukkan Keranjang
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // 3. LOGIKA FILTER KATEGORI
+        function filterCategory(category) {
+            currentFilter = category;
+            
+            // Ubah gaya visual tombol aktif
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.className = "cat-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer bg-white text-slate-600 border border-slate-200 hover:bg-slate-50";
+            });
+            document.getElementById(`btn-${category}`).className = "cat-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer bg-blue-600 text-white shadow-xs";
+
+            renderProducts();
+        }
+
+        // 4. OPERASI CRUD CART
         function addToCart(id) {
             const product = PRODUCTS.find(p => p.id === id);
             const item = cart.find(c => c.id === id);
@@ -116,7 +199,7 @@
 
             item.qty += delta;
             if (item.qty <= 0) {
-                cart = cart.filter(c => c.id !== id); // Hapus jika jumlah 0
+                cart = cart.filter(c => c.id !== id);
             }
             updateCart();
         }
@@ -126,9 +209,9 @@
             updateCart();
         }
 
-        // 5. UPDATE TAMPILAN KERANJANG & LOCALSTORAGE
+        // 5. UPDATE STATE & INTERFACE
         function updateCart() {
-            localStorage.setItem('tokokilat_cart', JSON.stringify(cart)); // Simpan data ke browser
+            localStorage.setItem('megastore_cart', JSON.stringify(cart));
             
             const countEl = document.getElementById('cart-count');
             const itemsContainer = document.getElementById('cart-items');
@@ -138,7 +221,7 @@
             countEl.innerText = totalItems;
 
             if (cart.length === 0) {
-                itemsContainer.innerHTML = `<p class="text-gray-400 text-xs text-center py-6">Keranjang Anda kosong.</p>`;
+                itemsContainer.innerHTML = `<p class="text-gray-400 text-xs text-center py-8">Keranjang belanjaan Anda kosong.</p>`;
                 totalEl.innerText = formatRupiah(0);
                 return;
             }
@@ -148,18 +231,18 @@
                 const subtotal = item.price * item.qty;
                 totalPrice += subtotal;
                 return `
-                    <div class="flex gap-3 items-center justify-between border-b border-gray-50 pb-2 text-xs">
-                        <img src="${item.img}" class="w-10 h-10 object-cover rounded-md" />
+                    <div class="flex gap-3 items-center justify-between border-b border-slate-50 pb-3 text-xs">
+                        <img src="${item.img}" class="w-12 h-12 object-cover rounded-xl border border-slate-100" />
                         <div class="flex-grow">
                             <h4 class="font-bold text-slate-800 line-clamp-1">${item.name}</h4>
-                            <p class="text-gray-400">${formatRupiah(item.price)}</p>
+                            <p class="text-blue-600 font-semibold mt-0.5">${formatRupiah(item.price)}</p>
                         </div>
-                        <div class="flex items-center gap-1.5 bg-gray-100 rounded-lg p-1">
-                            <button onclick="changeQty(${item.id}, -1)" class="w-5 h-5 bg-white text-gray-600 rounded flex items-center justify-center font-bold hover:bg-gray-200 cursor-pointer">-</button>
-                            <span class="font-semibold w-4 text-center">${item.qty}</span>
-                            <button onclick="changeQty(${item.id}, 1)" class="w-5 h-5 bg-white text-gray-600 rounded flex items-center justify-center font-bold hover:bg-gray-200 cursor-pointer">+</button>
+                        <div class="flex items-center gap-1.5 bg-slate-100 rounded-xl p-1 shrink-0">
+                            <button onclick="changeQty(${item.id}, -1)" class="w-5 h-5 bg-white text-slate-600 rounded-md flex items-center justify-center font-bold shadow-xs hover:bg-slate-200 cursor-pointer">-</button>
+                            <span class="font-bold w-4 text-center text-slate-700">${item.qty}</span>
+                            <button onclick="changeQty(${item.id}, 1)" class="w-5 h-5 bg-white text-slate-600 rounded-md flex items-center justify-center font-bold shadow-xs hover:bg-slate-200 cursor-pointer">+</button>
                         </div>
-                        <button onclick="removeFromCart(${item.id})" class="text-red-400 hover:text-red-600 cursor-pointer ml-1">🗑️</button>
+                        <button onclick="removeFromCart(${item.id})" class="text-red-400 hover:text-red-600 cursor-pointer text-sm ml-1">🗑️</button>
                     </div>
                 `;
             }).join('');
@@ -167,31 +250,31 @@
             totalEl.innerText = formatRupiah(totalPrice);
         }
 
-        // TOGGLE HIDDEN MODAL
         function toggleCart() {
             document.getElementById('cart-dropdown').classList.toggle('hidden');
         }
 
-        // 6. INTEGRASI WHATSAPP CHECKOUT
+        // 6. WHATSAPP LINK INTEGRATION
         function checkoutToWhatsApp() {
             if (cart.length === 0) return alert("Keranjang kosong!");
 
-            const WhatsAppPhone = "6281234567890"; // Ganti nomor tokomu di sini
-            let message = "Halo Admin, saya ingin memesan produk berikut:\n\n";
+            const WA_NUMBER = "6281234567890"; // Ganti nomor tokomu di sini
+            let text = "🛒 *NOTA PESANAN MEGASTORE*\n----------------------------------------\n\n";
             let total = 0;
 
-            cart.forEach((item, index) => {
+            cart.forEach((item, i) => {
                 const subtotal = item.price * item.qty;
                 total += subtotal;
-                message += `${index + 1}. *${item.name}*\n   Jumlah: ${item.qty}x | Subtotal: ${formatRupiah(subtotal)}\n\n`;
+                text += `${i + 1}. *${item.name}*\n   Kuantitas: ${item.qty}x\n   Subtotal: ${formatRupiah(subtotal)}\n\n`;
             });
 
-            message += `*Total Keseluruhan: ${formatRupiah(total)}*\n\nMohon petunjuk metode pembayarannya. Terima kasih!`;
+            text += "----------------------------------------\n";
+            text += `*💵 TOTAL AKHIR: ${formatRupiah(total)}*\n\nMohon info ketersediaan barang dan nomor rekening pembayaran ya Min. Terima kasih!`;
             
-            window.open(`https://wa.me/${WhatsAppPhone}?text=${encodeURIComponent(message)}`, '_blank');
+            window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
         }
 
-        // RUNTIME INITIALIZATION
+        // JALANKAN PROGRAM PERTAMA KALI
         renderProducts();
         updateCart();
     </script>
